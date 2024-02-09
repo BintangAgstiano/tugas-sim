@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato&family=Oswald&family=Poppins&display=swap');
+
+        .container {
+            width: 30%;
+            height: 80vh;
+            border: 1px solid black;
+            margin: 8vh auto;
+            border-radius: 10px;
+        }
+
+        h1 {
+            font-family: oswald;
+            text-align: center;
+        }
+
+        .syarat {
+            width: 70%;
+            height: max-content;
+            background-color: red;
+            border-radius: 5px;
+            margin: auto;
+        }
+
+        .lorem {
+            color: white;
+            text-align: center;
+            padding: 2% 5%;
+            font-family: oswald;
+        }
+
+        form {
+            margin: auto;
+            border: 1px solid black;
+            width: 80%;
+            height: max-content;
+            text-align: center;
+            padding: 5%;
+            border-radius: 5px;
+        }
+
+        label {
+            font-family: oswald;
+            font-size: 1.5rem;
+        }
+
+        input {
+            border-radius: 3px;
+            border: 1px solid black;
+        }
+
+        select {
+            border-radius: 3px;
+            padding: 5px;
+            border: 1px solid black;
+            font-family: oswald;
+            font-size: 1.1rem;
+        }
+
+        option {
+            font-family: oswald;
+            font-size: 1.1rem;
+        }
+
+        button {
+            border-radius: 3px;
+            padding: 2px 30px;
+            border: 1px solid black;
+            font-family: oswald;
+            font-size: 1.1rem;
+            margin-top: 5%;
+        }
+
+        .hasil {
+            width: 70%;
+            height: 5vh;
+            border-radius: 5px;
+            margin: auto;
+            font-family: oswald;
+            font-size: 1.1rem;
+            color: azure;
+            text-align: center;
+            line-height: 5vh;
+            margin-top: 3%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Form pembuatan sim</h1>
+        <div class="syarat">
+            <p class="lorem">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam similique vero amet
+            </p>
+        </div>
+        <form action="">
+            <label for="nama">nama:</label>
+            <input type="text" id="nama">
+            <br><br>
+
+            <label for="umur">umur:</label>
+            <input type="number" id="umur">
+            <br><br>
+
+            <label for="jk">jenis kelamin:</label>
+
+            <input type="radio" id="laki" name="jk">
+            <label for="laki">laki</label>
+            <input type="radio" id="cewe" name="jk">
+            <label for="cewe">cewe</label>
+            <br><br>
+
+            <label for="sim">pilih jenis SIM</label>
+            <select name="pilihsim" id="pilihsim">
+                <option value="a">sim a</option>
+                <option value="b">sim b</option>
+                <option value="c">sim c</option>
+            </select>
+
+            <br>
+
+            <button type="submit" id="submit">kirim</button>
+        </form>
+
+        <div class="hasil"></div>
+    </div>
+    <script>
+        const butt = document.getElementById('submit');
+
+
+        butt.addEventListener('click', function (e) {
+            e.preventDefault();
+            const hasil = document.querySelector('.hasil');
+            const jenisSim = document.getElementById('pilihsim');
+            const hasilSim = jenisSim.options[jenisSim.selectedIndex].text;
+            const laki = document.getElementById("laki");
+            if (laki.checked) {
+                const hasil = document.querySelector('.hasil');
+                const umur = document.getElementById("umur").value;
+                if (umur >= 17) {
+                    hasil.innerHTML = `anda di terima di  ${hasilSim}`;
+                    hasil.style.backgroundColor = "green";
+                }
+                else {
+                    hasil.innerHTML = "Maaf Anda Belum Bisa Membuat Sim";
+                    hasil.style.backgroundColor = "red";
+                }
+            }
+            if (cewe.checked) {
+                const umur = document.getElementById("umur").value;
+                const hasil = document.querySelector('.hasil');
+                if (umur >= 17) {
+                    hasil.innerHTML = `anda di terima di  ${hasilSim}`;
+                    hasil.style.backgroundColor = "green";
+                }
+                else {
+                    hasil.innerHTML = "Maaf Anda Belum Bisa Membuat Sim";
+                    hasil.style.backgroundColor = "red";
+                }
+            }
+        })
+        // else {
+        //     console.log('eror');
+        // }
+
+    </script>
+</body>
+
+</html>
